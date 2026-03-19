@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robin Capital Group — Systematic Investment Management</title>
+  <meta name="description" content="Miami Beach-based Registered Investment Advisor managing discretionary capital across three separately managed account strategies. Founded 2019. Strategies live since May 2022.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & BASE ───────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0A0A0A;
+      --bg2:      #111111;
+      --bg3:      #171717;
+      --gold:     #B8960C;
+      --gold2:    #D4AF37;
+      --gold3:    #E8C84A;
+      --cream:    #E8D9AA;
+      --body:     #CCCCCC;
+      --muted:    #888888;
+      --border:   #2A2A2A;
+      --border2:  #333333;
+      --white:    #FFFFFF;
+      --header-h: 72px;
+      --max-w:    1180px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold3); }
+
+    /* ── HEADER / NAV ────────────────────────────────── */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold2); }
+
+    .nav-links .nav-cta {
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 6px 16px;
+      border-radius: 2px;
+      font-size: 10.5px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links .nav-cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--body);
+      transition: all 0.3s;
+    }
+
+    /* ── ANCHOR OFFSETS ─────────────────────────────── */
+    .anchor {
+      display: block;
+      height: var(--header-h);
+      margin-top: calc(-1 * var(--header-h));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* ── HERO ────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    /* Animated gradient mesh background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(184,150,12,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 20% 80%, rgba(184,150,12,0.04) 0%, transparent 50%),
+        var(--bg);
+      animation: heroShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroShift {
+      0%   { background-position: 0% 50%; opacity: 1; }
+      50%  { opacity: 0.85; }
+      100% { background-position: 100% 50%; opacity: 1; }
+    }
+
+    /* Subtle grid overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(184,150,12,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,150,12,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    /* Animated ticker lines (slider-like motion) */
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-line {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184,150,12,0.3), transparent);
+      animation: lineSweep linear infinite;
+    }
+
+    .hero-line:nth-child(1) { width: 60%; top: 25%; animation-duration: 8s; animation-delay: 0s; left: -60%; }
+    .hero-line:nth-child(2) { width: 40%; top: 50%; animation-duration: 11s; animation-delay: 2s; left: -40%; }
+    .hero-line:nth-child(3) { width: 70%; top: 75%; animation-duration: 9s; animation-delay: 4s; left: -70%; }
+
+    @keyframes lineSweep {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(250vw); }
+    }
+
+    /* Floating data points */
+    .hero-dots {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-dot {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: dotFloat linear infinite;
+    }
+
+    .hero-dot:nth-child(1)  { left: 15%; top: 20%; animation-duration: 6s;  animation-delay: 0s;   opacity: 0.6; }
+    .hero-dot:nth-child(2)  { left: 75%; top: 35%; animation-duration: 8s;  animation-delay: 1s;   opacity: 0.3; }
+    .hero-dot:nth-child(3)  { left: 45%; top: 70%; animation-duration: 7s;  animation-delay: 3s;   opacity: 0.5; }
+    .hero-dot:nth-child(4)  { left: 85%; top: 65%; animation-duration: 9s;  animation-delay: 0.5s; opacity: 0.25; }
+    .hero-dot:nth-child(5)  { left: 30%; top: 45%; animation-duration: 5s;  animation-delay: 2s;   opacity: 0.4; }
+
+    @keyframes dotFloat {
+      0%, 100% { transform: translateY(0px) scale(1);   opacity: var(--o, 0.4); }
+      50%       { transform: translateY(-20px) scale(1.5); opacity: 0.8; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+      padding-top: var(--header-h);
+    }
+
+    /* Slide-in text animation */
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 600;
+      line-height: 1.05;
+      color: var(--cream);
+      letter-spacing: -1px;
+      margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.9s ease forwards 0.5s;
+      max-width: 780px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold2);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--body);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards 0.7s;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards 0.9s;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #0A0A0A;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold3); color: #0A0A0A; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border2);
+      color: var(--body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Hero stats bar */
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.1s;
+    }
+
+    .hero-stat {
+      flex: 1;
+      padding: 20px 32px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .hero-stat:last-child { border-right: none; }
+
+    .hero-stat-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--gold2);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat-label {
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION WRAPPERS ────────────────────────────── */
+    section {
+      padding: 100px 40px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .section-full {
+      padding: 100px 40px;
+      background: var(--bg2);
+    }
+
+    .section-full .inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      font-weight: 400;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: 15px;
+      color: var(--body);
+      line-height: 1.85;
+    }
+
+    /* ── WELCOME / ABOUT ─────────────────────────────── */
+    #welcome-row {
+      background: var(--bg);
+      padding: 100px 40px;
+    }
+
+    .welcome-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .welcome-text p {
+      font-size: 15px;
+      color: var(--body);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .blockquote {
+      border-left: 2px solid var(--gold);
+      padding: 20px 24px;
+      margin-top: 36px;
+      background: rgba(184,150,12,0.04);
+    }
+
+    .blockquote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.7;
+      margin-bottom: 12px !important;
+    }
+
+    .blockquote cite {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .welcome-chart {
+      position: relative;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      overflow: hidden;
+    }
+
+    .welcome-chart img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── STRATEGIES ──────────────────────────────────── */
+    #strategies-section {
+      background: var(--bg2);
+      padding: 100px 40px;
+    }
+
+    .strat-intro {
+      max-width: var(--max-w);
+      margin: 0 auto 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .strat-pill {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .strat-diamond {
+      color: var(--gold);
+      font-size: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .strat-pill h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .strat-pill .strat-badge {
+      font-size: 9px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .strat-pill p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* Performance cards */
+    .perf-header {
+      max-width: var(--max-w);
+      margin: 0 auto 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .perf-header-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .perf-header-left p {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .perf-header-right {
+      font-size: 10px;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    .perf-cards {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .perf-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 32px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .perf-card:hover { border-color: var(--gold); }
+
+    .perf-card-top {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .perf-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .perf-card-class {
+      font-size: 9.5px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .perf-si {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--gold2);
+      line-height: 1;
+      margin: 20px 0 4px;
+    }
+
+    .perf-si-label {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 20px;
+    }
+
+    .perf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .perf-item {}
+
+    .perf-item-label {
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .perf-item-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--body);
+      font-weight: 400;
+    }
+
+    .perf-benchmark {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .perf-bm-label {
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .perf-bm-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .perf-tearsheet {
+      display: block;
+      margin-top: 20px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      transition: color 0.2s, letter-spacing 0.2s;
+    }
+
+    .perf-tearsheet:hover { color: var(--gold3); letter-spacing: 1.5px; }
+
+    .perf-disclaimer {
+      max-width: var(--max-w);
+      margin: 24px auto 0;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    /* ── RESEARCH & INSIGHTS ─────────────────────────── */
+    #research-insights-section {
+      background: var(--bg);
+      padding: 100px 40px;
+    }
+
+    .research-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .research-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .research-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--border2);
+      color: var(--body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 20px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .research-cta-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(184,150,12,0.04);
+    }
+
+    .research-cta-btn.primary-btn {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #0A0A0A;
+      font-weight: 600;
+    }
+
+    .research-cta-btn.primary-btn:hover {
+      background: var(--gold3);
+      border-color: var(--gold3);
+      color: #0A0A0A;
+    }
+
+    .research-topics {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .research-topic {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: padding-left 0.2s;
+    }
+
+    .research-topic:first-child { border-top: 1px solid var(--border); }
+
+    .research-topic:hover { padding-left: 6px; }
+
+    .research-topic h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--cream);
+    }
+
+    .research-topic .topic-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* ── RISK MANAGEMENT ─────────────────────────────── */
+    #risk-management-section {
+      background: var(--bg2);
+      padding: 0;
+    }
+
+    .risk-grid {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .risk-chart-col {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg3);
+    }
+
+    .risk-chart-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      min-height: 480px;
+    }
+
+    .risk-text-col {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .risk-text-col .section-label { margin-bottom: 24px; }
+    .risk-text-col .section-title { margin-bottom: 20px; }
+
+    .risk-point {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .risk-point:first-of-type { border-top: none; margin-top: 24px; padding-top: 0; }
+
+    .risk-point h3 {
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .risk-point p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── TEAM ────────────────────────────────────────── */
+    #team-section {
+      background: var(--bg);
+      padding: 100px 40px;
+    }
+
+    .team-grid {
+      max-width: var(--max-w);
+      margin: 48px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .team-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 40px 36px;
+      transition: border-color 0.3s;
+    }
+
+    .team-card:hover { border-color: var(--gold); }
+
+    .team-initial {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--gold2);
+      margin-bottom: 24px;
+    }
+
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .team-title {
+      font-size: 9.5px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .team-bio {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── TIMELINE ────────────────────────────────────── */
+    #timeline-section {
+      background: var(--bg2);
+      padding: 100px 40px;
+    }
+
+    .timeline {
+      max-width: var(--max-w);
+      margin: 48px auto 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .timeline-item {
+      padding: 0 16px;
+      text-align: center;
+    }
+
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin: 12px auto 24px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 12px rgba(184,150,12,0.5);
+    }
+
+    .timeline-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-event {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .timeline-event strong {
+      display: block;
+      color: var(--body);
+      font-size: 13px;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    #footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 64px 40px 32px;
+    }
+
+    .footer-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .footer-logo { margin-bottom: 20px; }
+    .footer-logo img { height: 32px; width: auto; filter: brightness(0.9); }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .footer-contact {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-contact a { color: var(--gold); font-size: 12px; }
+
+    .footer-col h4 {
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--body);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 12px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--gold); }
+
+    .footer-legal {
+      background: rgba(184,150,12,0.03);
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+    }
+
+    .footer-legal p {
+      font-size: 10px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .footer-bottom {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 10.5px;
+      color: #444;
+    }
+
+    .footer-ria {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: #444;
+      text-transform: uppercase;
+    }
+
+    /* ── MOBILE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      :root { --header-h: 60px; }
+
+      #header { padding: 0 24px; }
+
+      .nav-links { display: none; flex-direction: column; position: absolute;
+        top: var(--header-h); left: 0; right: 0; background: var(--bg);
+        border-bottom: 1px solid var(--border); padding: 24px; gap: 20px; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+
+      .hero-content { padding: 0 24px; padding-top: var(--header-h); }
+      .hero-stats { display: none; }
+
+      .welcome-grid,
+      .research-grid,
+      .risk-grid { grid-template-columns: 1fr; }
+      .risk-chart-col { display: none; }
+      .risk-text-col { padding: 60px 24px; }
+
+      .strat-intro { grid-template-columns: 1fr; gap: 28px; }
+      .perf-cards  { grid-template-columns: 1fr; }
+      .team-grid   { grid-template-columns: 1fr; }
+      .timeline    { grid-template-columns: 1fr; gap: 32px; }
+      .timeline::before { display: none; }
+      .timeline-item { text-align: left; display: flex; align-items: flex-start; gap: 20px; }
+      .timeline-dot  { margin: 4px 0 0; flex-shrink: 0; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+      section, #welcome-row, #strategies-section,
+      #research-insights-section, #team-section,
+      #timeline-section { padding: 64px 24px; }
+
+      #footer { padding: 48px 24px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────── -->
+  <header id="header">
+    <a class="nav-logo" href="/">
+      <img src="https://robincapitalgroup.com/wp-content/uploads/2019/09/logo.png"
+           alt="Robin Capital Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:#E8D9AA; letter-spacing:0.5px;">Robin Capital Group</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#welcome">About RCG</a></li>
+        <li><a href="#investment-strategies">Strategies</a></li>
+        <li><a href="#risk-management">Risk Management</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="https://robincapitalgroup.substack.com" target="_blank">Research & Insights</a></li>
+        <li><a href="/contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ── HERO ──────────────────────────────────────── -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-lines">
+      <div class="hero-line"></div>
+      <div class="hero-line"></div>
+      <div class="hero-line"></div>
+    </div>
+    <div class="hero-dots">
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Registered Investment Advisor · Miami Beach · Est. 2019</p>
+      <h1 class="hero-headline">Integrity.<br><em>Foresight.</em><br>Opportunity.</h1>
+      <p class="hero-sub">Systematic investment management across three separately managed account strategies. Capital goes where the risk-adjusted opportunity is — and nowhere else.</p>
+      <div class="hero-actions">
+        <a href="#investment-strategies" class="btn-primary">View Strategies →</a>
+        <a href="https://robincapitalgroup.substack.com" target="_blank" class="btn-ghost">Research & Insights ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">+192%</div>
+        <div class="hero-stat-label">Inflection 2.0 · Since Inception</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">+88.8%</div>
+        <div class="hero-stat-label">Dynamic Macro · Since Inception</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">+16.5%</div>
+        <div class="hero-stat-label">Safe Haven · Since Inception</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">May '22</div>
+        <div class="hero-stat-label">All Strategies Live Since</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WELCOME ─────────────────────────────────────── -->
+  <span class="anchor" id="welcome"></span>
+  <div id="welcome-row">
+    <div class="welcome-grid">
+      <div class="welcome-text">
+        <p class="section-label">About RCG</p>
+        <h2 class="section-title">Welcome</h2>
+        <p>Robin Capital Group is a Miami Beach-based Registered Investment Advisor founded in 2019. We manage approximately $30 million in discretionary capital across three separately managed account strategies — each designed around a specific risk mandate and operated with the same systematic discipline the firm's principals developed across two decades at Citadel Securities, Citadel, and Bank of America.</p>
+        <p>Every client holds their assets in their own name, with full position-level transparency at all times. There are no commingled funds, no gates, no lock-ups. Capital goes where the risk-adjusted opportunity is — and nowhere else.</p>
+        <p>Three strategies have been running since May 2022 across multiple market regimes. The performance record is live, audited, and available below.</p>
+        <div class="blockquote">
+          <p>"Every investment edge decays. Markets change regime, capital crowds the trade, and yesterday's signal becomes tomorrow's noise. The only durable advantage is a process built to recognize that — and adapt before the drawdown forces it."</p>
+          <cite>RCG Investment Philosophy</cite>
+        </div>
+      </div>
+      <div class="welcome-chart">
+        <img src="https://robincapitalgroup.com/wp-content/uploads/2019/09/rcg_alpha_factor_1.jpg"
+             alt="RCG Alpha Factor Decomposition Chart"
+             loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STRATEGIES ─────────────────────────────────── -->
+  <span class="anchor" id="investment-strategies"></span>
+  <div id="strategies-section">
+    <div class="strat-intro">
+      <div class="strat-pill">
+        <div class="strat-diamond">◆</div>
+        <div>
+          <div class="strat-badge">Conservative · Fixed Income</div>
+          <h3>Safe Haven</h3>
+          <p>US Treasuries &amp; investment-grade bonds. Capital preservation with active duration management — designed to anchor the defensive allocation through rate cycles and credit stress.</p>
+        </div>
+      </div>
+      <div class="strat-pill">
+        <div class="strat-diamond">◆</div>
+        <div>
+          <div class="strat-badge">Moderate+ · Multi-Asset</div>
+          <h3>Dynamic Macro</h3>
+          <p>Cross-asset rotation across global equity, fixed income &amp; commodity ETFs driven by systematic macro signals. No mandate to stay invested when conditions are unfavorable.</p>
+        </div>
+      </div>
+      <div class="strat-pill">
+        <div class="strat-diamond">◆</div>
+        <div>
+          <div class="strat-badge">Aggressive · US Equities</div>
+          <h3>Inflection 2.0</h3>
+          <p>High-conviction positions in US companies at the early stages of a fundamental earnings turn. Built for investors seeking aggressive growth with institutional-grade discipline.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Performance cards -->
+    <div class="perf-header">
+      <div class="perf-header-left">
+        <h2>Robin Capital Group — Strategy Performance</h2>
+        <p>Actively Managed Strategies · Inception May 2022 · Custodied at Interactive Brokers</p>
+      </div>
+      <div class="perf-header-right">
+        Performance as of<br>January 31, 2026
+      </div>
+    </div>
+
+    <div class="perf-cards">
+
+      <!-- Inflection 2.0 -->
+      <div class="perf-card">
+        <div class="perf-card-top">
+          <div class="perf-card-name">Inflection 2.0</div>
+          <div class="perf-card-class">Equity · Concentrated · Benchmark: IWM</div>
+        </div>
+        <div class="perf-si">+192.12%</div>
+        <div class="perf-si-label">Since Inception</div>
+        <div class="perf-grid">
+          <div class="perf-item">
+            <div class="perf-item-label">1-Year Return</div>
+            <div class="perf-item-val">+100.28%</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Sharpe Ratio (SI)</div>
+            <div class="perf-item-val">0.92</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Max Drawdown</div>
+            <div class="perf-item-val">−37.8%</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Ann. Volatility</div>
+            <div class="perf-item-val">31.6%</div>
+          </div>
+        </div>
+        <div class="perf-benchmark">
+          <span class="perf-bm-label">IWM Since Inception</span>
+          <span class="perf-bm-val">+39.20%</span>
+        </div>
+        <a class="perf-tearsheet" href="https://robincapitalgroup.com/wp-content/uploads/2019/09/RCG_Inflection_Tearsheet_Jan.pdf" target="_blank">View Full Tearsheet ↗</a>
+      </div>
+
+      <!-- Dynamic Macro -->
+      <div class="perf-card">
+        <div class="perf-card-top">
+          <div class="perf-card-name">Dynamic Macro</div>
+          <div class="perf-card-class">Multi-Asset · Global · Benchmark: SPY</div>
+        </div>
+        <div class="perf-si">+88.83%</div>
+        <div class="perf-si-label">Since Inception</div>
+        <div class="perf-grid">
+          <div class="perf-item">
+            <div class="perf-item-label">1-Year Return</div>
+            <div class="perf-item-val">+16.55%</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Sharpe Ratio (SI)</div>
+            <div class="perf-item-val">0.64</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Max Drawdown</div>
+            <div class="perf-item-val">−15.91%</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Ann. Volatility</div>
+            <div class="perf-item-val">17.60%</div>
+          </div>
+        </div>
+        <div class="perf-benchmark">
+          <span class="perf-bm-label">SPY Since Inception</span>
+          <span class="perf-bm-val">+77.30%</span>
+        </div>
+        <a class="perf-tearsheet" href="https://robincapitalgroup.com/wp-content/uploads/2019/09/RCG_Dynamic_Macro_Tearsheet_Jan.pdf" target="_blank">View Full Tearsheet ↗</a>
+      </div>
+
+      <!-- Safe Haven -->
+      <div class="perf-card">
+        <div class="perf-card-top">
+          <div class="perf-card-name">Safe Haven</div>
+          <div class="perf-card-class">Fixed Income · Defensive · Benchmark: IEF</div>
+        </div>
+        <div class="perf-si">+16.55%</div>
+        <div class="perf-si-label">Since Inception</div>
+        <div class="perf-grid">
+          <div class="perf-item">
+            <div class="perf-item-label">1-Year Return</div>
+            <div class="perf-item-val">+4.80%</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Sortino Ratio (SI)</div>
+            <div class="perf-item-val">0.33</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Max Drawdown</div>
+            <div class="perf-item-val">−6.71%</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Ann. Volatility</div>
+            <div class="perf-item-val">4.10%</div>
+          </div>
+        </div>
+        <div class="perf-benchmark">
+          <span class="perf-bm-label">IEF Since Inception</span>
+          <span class="perf-bm-val">+5.36%</span>
+        </div>
+        <a class="perf-tearsheet" href="https://robincapitalgroup.com/wp-content/uploads/2019/09/RCG_Safe_Haven_Tearsheet_Jan.pdf" target="_blank">View Full Tearsheet ↗</a>
+      </div>
+    </div>
+
+    <p class="perf-disclaimer">All returns are net of management fees and calculated on a time-weighted basis using Interactive Brokers PortfolioAnalyst. Past performance is not indicative of future results. This is not investment advice or a solicitation to buy or sell any security. Robin Capital Group LLC · Registered Investment Advisor · State of Florida.</p>
+  </div>
+
+  <!-- ── RESEARCH & INSIGHTS ────────────────────────── -->
+  <span class="anchor" id="research-insights"></span>
+  <div id="research-insights-section">
+    <div class="research-grid">
+      <div>
+        <p class="section-label">Research & Insights</p>
+        <h2 class="section-title">The Thinking Behind the Capital</h2>
+        <p class="section-body" style="margin-bottom:36px;">RCG publishes ongoing research on portfolio construction, systematic alpha generation, and the discipline of managing capital across market regimes. Written by Nick Diaz, CIO — the intellectual framework behind every allocation decision, explained without a sales agenda.</p>
+        <div class="research-cta">
+          <a href="https://robincapitalgroup.substack.com" target="_blank" class="research-cta-btn primary-btn">Read the Series &amp; Subscribe →</a>
+          <a href="https://robincapitalgroup.com/wp-content/uploads/2019/09/RCG_Investor_Deck_Jan2026.pdf" target="_blank" class="research-cta-btn">↓ Download Firm Materials</a>
+          <a href="https://robincapitalgroup.com/wp-content/uploads/2019/09/RCG_Portfolio_Construction_WhitePaper-2.pdf" target="_blank" class="research-cta-btn">↓ White Paper — Alpha Sourcing</a>
+        </div>
+        <p style="font-size:11px; color:var(--muted); margin-top:16px;">Published every two weeks. Free to read.</p>
+      </div>
+      <div class="research-topics">
+        <div class="research-topic">
+          <h4>Six Years of Stealth, and Why That Changes Now</h4>
+          <span class="topic-num">01</span>
+        </div>
+        <div class="research-topic">
+          <h4>Why Alpha Decays — And What That Means for Your Process</h4>
+          <span class="topic-num">02</span>
+        </div>
+        <div class="research-topic">
+          <h4>The Case for a Mandate-Free Strategy</h4>
+          <span class="topic-num">03</span>
+        </div>
+        <div class="research-topic">
+          <h4>What Correlated Assets Are Actually Telling You</h4>
+          <span class="topic-num">04 ↑</span>
+        </div>
+        <div class="research-topic">
+          <h4>How to Think About Drawdown Before It Happens</h4>
+          <span class="topic-num">05 ↑</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RISK MANAGEMENT ────────────────────────────── -->
+  <span class="anchor" id="risk-management"></span>
+  <div id="risk-management-section">
+    <div class="risk-grid">
+      <div class="risk-chart-col">
+        <img src="https://robincapitalgroup.com/wp-content/uploads/2026/03/07_rolling_risk_metrics.jpg"
+             alt="RCG Rolling Risk Metrics" loading="lazy">
+      </div>
+      <div class="risk-text-col">
+        <p class="section-label">Risk Management</p>
+        <h2 class="section-title">Risk Management Is the Precondition for Returns</h2>
+        <p class="section-body">At RCG, risk management is not applied after the investment decision — it is the foundation the decision is built on. Treating the denominator of your Sharpe ratio as the primary design variable, not an afterthought, is the discipline we carried from institutional fixed income desks into every portfolio construction decision.</p>
+        <div class="risk-point">
+          <h3>Tailored Risk Profiles</h3>
+          <p>Every client account is sized and structured around their specific risk tolerance, liquidity needs, and investment horizon. A strategy generating 25% annually with a Sharpe below 0.3 is a worse outcome than one generating 18% with a Sharpe of 0.85.</p>
+        </div>
+        <div class="risk-point">
+          <h3>Systematic Monitoring</h3>
+          <p>Automated risk monitoring runs continuously across all three strategies. Position sizing, drawdown limits, correlation exposure, and regime signals are tracked in real time — so human judgment is applied at the moments it genuinely adds value.</p>
+        </div>
+        <div class="risk-point">
+          <h3>Liquidity Discipline</h3>
+          <p>RCG operates exclusively in liquid, exchange-traded instruments. Every position can be reduced or eliminated within hours — without negotiation, without delay. This is both a risk management choice and a client service standard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TEAM ───────────────────────────────────────── -->
+  <span class="anchor" id="team"></span>
+  <div id="team-section">
+    <div style="max-width:var(--max-w); margin:0 auto;">
+      <p class="section-label">Team</p>
+      <h2 class="section-title">The People Behind the Process</h2>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-initial">N</div>
+        <div class="team-name">Nick Diaz</div>
+        <div class="team-title">Founder & CIO</div>
+        <p class="team-bio">Bank of America → Citadel Global Fixed Income → Citadel Securities. Background in LatAm equities &amp; bonds, interest rate derivatives &amp; CDS (including financial crisis), CME algorithmic FICC trading, and market making. Engineer by training. Co-founder of Nezumia.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-initial">A</div>
+        <div class="team-name">Ashley Schott</div>
+        <div class="team-title">Managing Director & CCO</div>
+        <p class="team-bio">Chief Compliance Officer overseeing regulatory compliance, client relations, and operational integrity across all RCG strategies and separately managed account structures.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-initial">C</div>
+        <div class="team-name">Cong Vo</div>
+        <div class="team-title">Principal · Rookery Group</div>
+        <p class="team-bio">Head of Alternative Investments at Rookery Group. Brings deep expertise in alternative investment structuring and institutional capital allocation to the RCG advisory relationship.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── TIMELINE ───────────────────────────────────── -->
+  <div id="timeline-section">
+    <div style="max-width:var(--max-w); margin:0 auto;">
+      <p class="section-label">History</p>
+      <h2 class="section-title">A Partnership Built on Track Record</h2>
+      <p class="section-body" style="max-width:540px; margin-top:12px;">"Skin in the game — the firm's principals manage their own capital alongside clients."</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2008–2018</div>
+        <div class="timeline-event"><strong>Institutional Foundation</strong>BofA, Citadel FI, Citadel Securities — rates, credit, derivatives, HFT</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2019</div>
+        <div class="timeline-event"><strong>RCG Founded</strong>Miami Beach, Florida — RIA registration</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">May 2022</div>
+        <div class="timeline-event"><strong>Three Strategies Launched</strong>Safe Haven, Dynamic Macro, Inflection 2.0</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2022–2024</div>
+        <div class="timeline-event"><strong>Multiple Regimes Navigated</strong>Rate shock, equity recovery, volatile macro environment</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2025–Present</div>
+        <div class="timeline-event"><strong>~$30M AUM</strong>Growing discretionary asset base across SMA structures</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer id="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="https://robincapitalgroup.com/wp-content/uploads/2019/09/Banner_RCG.JPG"
+               alt="Robin Capital Group"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:#E8D9AA;">Robin Capital Group</span>
+        </div>
+        <p class="footer-tagline">Systematic investment management across three separately managed account strategies. Miami Beach, Florida.</p>
+        <div class="footer-contact">
+          <a href="mailto:info@robincapitalgroup.com">info@robincapitalgroup.com</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#welcome">About RCG</a></li>
+          <li><a href="#investment-strategies">Strategies</a></li>
+          <li><a href="#risk-management">Risk Management</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="https://robincapitalgroup.substack.com" target="_blank">Substack Series ↗</a></li>
+          <li><a href="https://robincapitalgroup.com/wp-content/uploads/2019/09/RCG_Portfolio_Construction_WhitePaper-2.pdf" target="_blank">White Paper ↗</a></li>
+          <li><a href="https://robincapitalgroup.com/wp-content/uploads/2019/09/RCG_Investor_Deck_Jan2026.pdf" target="_blank">Investor Deck ↗</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--body); font-family:'JetBrains Mono',monospace; font-weight:400; margin-bottom:16px;">Legal</h4>
+        <div class="footer-legal">
+          <p>Robin Capital Group LLC is a Registered Investment Advisor in the State of Florida. Past performance is not indicative of future results. All performance information is net of management fees and calculated on a time-weighted basis. This website is for informational purposes only and does not constitute investment advice, a solicitation to invest, or an offer to buy or sell any security. Please refer to RCG's Form ADV and full disclosure materials before making any investment decision.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Robin Capital Group LLC. All rights reserved.</span>
+      <span class="footer-ria">RIA · State of Florida · robincapitalgroup.com</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const nav    = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+    // Close mobile nav on link click
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => nav.classList.remove('open'));
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('.anchor');
+    const links    = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          links.forEach(l => {
+            l.style.color = l.getAttribute('href') === '#' + id
+              ? 'var(--gold2)' : '';
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
