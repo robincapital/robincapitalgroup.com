@@ -29,14 +29,14 @@
       --max-w:    1180px;
     }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 17px; }
 
     body {
       background: var(--bg);
       color: var(--body);
       font-family: 'Inter', sans-serif;
       font-weight: 400;
-      line-height: 1.7;
+      line-height: 1.8;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -62,7 +62,7 @@
     }
 
     .nav-logo img {
-      height: 38px;
+      height: 44px;
       width: auto;
     }
 
@@ -411,9 +411,9 @@
     }
 
     .section-body {
-      font-size: 15px;
+      font-size: 16px;
       color: var(--body);
-      line-height: 1.85;
+      line-height: 1.9;
     }
 
     /* ── WELCOME / ABOUT ─────────────────────────────── */
@@ -428,13 +428,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .welcome-text p {
-      font-size: 15px;
+      font-size: 16px;
       color: var(--body);
-      line-height: 1.9;
+      line-height: 1.95;
       margin-bottom: 20px;
     }
 
@@ -467,12 +467,18 @@
       border: 1px solid var(--border);
       background: var(--bg2);
       overflow: hidden;
+      align-self: stretch;
+      display: flex;
+      align-items: stretch;
     }
 
     .welcome-chart img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
       display: block;
+      min-height: 480px;
     }
 
     /* ── STRATEGIES ──────────────────────────────────── */
@@ -521,9 +527,9 @@
     }
 
     .strat-pill p {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
     /* Performance cards */
@@ -891,9 +897,9 @@
     }
 
     .team-bio {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     /* ── TIMELINE ────────────────────────────────────── */
@@ -1097,7 +1103,7 @@
   <!-- ── HEADER ─────────────────────────────────────── -->
   <header id="header">
     <a class="nav-logo" href="/">
-      <img src="https://robincapitalgroup.com/wp-content/uploads/2019/09/logo.png"
+      <img src="banner650x80px.jpg"
            alt="Robin Capital Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
       <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:#E8D9AA; letter-spacing:0.5px;">Robin Capital Group</span>
     </a>
@@ -1414,22 +1420,26 @@
       <div class="team-card">
         <div class="team-initial">N</div>
         <div class="team-name">Nick Diaz</div>
-        <div class="team-title">Founder & CIO</div>
-        <p class="team-bio">Bank of America → Citadel Global Fixed Income → Citadel Securities. Background in LatAm equities &amp; bonds, interest rate derivatives &amp; CDS (including financial crisis), CME algorithmic FICC trading, and market making. Engineer by training. Co-founder of Nezumia.</p>
+        <div class="team-title">Founder & Chief Investment Officer</div>
+        <p class="team-bio">Nick brings over fifteen years of experience in global financial markets, spanning institutional fixed income, derivatives, and systematic investment management. Prior to founding RCG, he held senior roles at Citadel's global fixed income group and Citadel Securities, developing deep expertise in rates markets, derivatives pricing, and the systematic risk management disciplines that define elite quantitative trading operations. Earlier, he worked at Bank of America in fixed income, building his foundational understanding of credit markets and institutional portfolio construction.</p>
+        <p class="team-bio" style="margin-top:12px;">Nick founded and built Robin Capital Group as a sole practitioner — designing the firm's investment philosophy, constructing its three live strategies, and developing the systematic infrastructure that underlies its operations. RCG's track record since May 2022, across multiple market regimes and in real client capital, reflects that work entirely. The firm's flexible mandate, multi-strategy architecture, and commitment to automated risk monitoring are the product of his career-long pursuit of one question: how to build an investment process rigorous enough to earn the trust it asks for.</p>
+        <p class="team-bio" style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">Nick is also Co-Founder and Co-CIO of <span style="color:var(--cream);">Nezumia</span>, a separate and distinct quantitative AI hedge fund he co-founded with Patrick Huggins, a Senior Quantitative Researcher with a PhD in Artificial Intelligence from Yale. Nezumia represents a different thesis entirely — one that the maturation of AI has made possible: a fully autonomous asset manager in which AI is integrated at every stage of the investment process, from alpha generation and signal sourcing to execution and risk management, with no discretionary human overlay. It operates outside the scope of RCG's SMA framework and targets a different investor base. The two firms are independent ventures that happen to share a founder — not extensions of one another.</p>
       </div>
 
       <div class="team-card">
         <div class="team-initial">A</div>
         <div class="team-name">Ashley Schott</div>
-        <div class="team-title">Managing Director & CCO</div>
-        <p class="team-bio">Chief Compliance Officer overseeing regulatory compliance, client relations, and operational integrity across all RCG strategies and separately managed account structures.</p>
+        <div class="team-title">Managing Director & Chief Compliance Officer</div>
+        <p class="team-bio">Ashley holds a degree from the University of British Columbia and built her early career in financial services in Chicago, holding roles at Citibank, Wayne Hummer Investments, and Wintrust. During that period she held a full suite of broker-dealer licenses and worked in a wealth management and advisory capacity alongside one of the most successful retirement planning practices in the Chicago area.</p>
+        <p class="team-bio" style="margin-top:12px;">At RCG, Ashley holds her Series 65 as a registered Investment Advisor and leads the firm's compliance function — keeping the practice current with RIA regulations, registrations, and regulatory filings. She also oversees day-to-day operations and client engagement, ensuring the firm's client relationships reflect the same standard of care it applies to portfolio management.</p>
       </div>
 
       <div class="team-card">
         <div class="team-initial">C</div>
         <div class="team-name">Cong Vo</div>
-        <div class="team-title">Principal · Rookery Group</div>
-        <p class="team-bio">Head of Alternative Investments at Rookery Group. Brings deep expertise in alternative investment structuring and institutional capital allocation to the RCG advisory relationship.</p>
+        <div class="team-title">Principal, Rookery Management Group</div>
+        <p class="team-bio">Cong is a Miami native who has spent his career in real estate rehabilitation and development, accumulating deep local market knowledge and an extensive network of relationships that consistently surface new investment opportunities. He is a co-principal of Rookery Management Group alongside Nick Diaz — a private real estate vehicle focused on the families' property portfolios — and runs his own accounting practice, CVO Financial.</p>
+        <p class="team-bio" style="margin-top:12px;">Cong's association with RCG is a personal and professional one. He is not a registered representative of Robin Capital Group and does not solicit or conduct any investment advisory business on the firm's behalf.</p>
       </div>
 
     </div>
@@ -1476,14 +1486,15 @@
     <div class="footer-grid">
       <div>
         <div class="footer-logo">
-          <img src="https://robincapitalgroup.com/wp-content/uploads/2019/09/Banner_RCG.JPG"
+          <img src="banner650x80px.jpg"
                alt="Robin Capital Group"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
           <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:#E8D9AA;">Robin Capital Group</span>
         </div>
         <p class="footer-tagline">Systematic investment management across three separately managed account strategies. Miami Beach, Florida.</p>
         <div class="footer-contact">
-          <a href="mailto:info@robincapitalgroup.com">info@robincapitalgroup.com</a>
+          <a href="mailto:info@robincapitalgroup.com">info@robincapitalgroup.com</a><br>
+          <a href="https://robincapitalgroup.substack.com" target="_blank" style="color:var(--muted); font-size:11px; letter-spacing:0.5px;">robincapitalgroup.substack.com ↗</a>
         </div>
       </div>
 
