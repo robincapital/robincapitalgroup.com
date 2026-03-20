@@ -1112,6 +1112,129 @@
       text-transform: uppercase;
     }
 
+    /* ── CONTACT ─────────────────────────────────────── */
+    #contact-section {
+      background: var(--bg2);
+      padding: 100px 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 8px;
+    }
+
+    .contact-info-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-info-item:first-child { border-top: 1px solid var(--border); }
+
+    .contact-info-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .contact-info-value {
+      font-size: 15px;
+      color: var(--body);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a.contact-info-value:hover { color: var(--gold2); }
+
+    /* Form styles */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group { display: flex; flex-direction: column; }
+
+    .form-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      color: var(--body);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus { border-color: var(--gold); }
+    .form-input::placeholder { color: #444; }
+
+    .form-select {
+      cursor: pointer;
+      color: var(--body);
+    }
+
+    .form-select option {
+      background: var(--bg3);
+      color: var(--body);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    .form-submit {
+      margin-top: 24px;
+      width: 100%;
+      background: var(--gold);
+      color: #0A0A0A;
+      border: none;
+      padding: 15px 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      border-radius: 0;
+    }
+
+    .form-submit:hover { background: var(--gold3); transform: translateY(-1px); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    @media (max-width: 900px) {
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
     /* ── MOBILE ──────────────────────────────────────── */
     @media (max-width: 900px) {
       :root { --header-h: 60px; }
@@ -1170,7 +1293,7 @@
         <li><a href="#risk-management">Risk Management</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="https://robincapitalgroup.substack.com" target="_blank">Research & Insights</a></li>
-        <li><a href="/contact" class="nav-cta">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
     </nav>
 
@@ -1559,6 +1682,73 @@
     </div>
   </div>
 
+  <!-- ── CONTACT ───────────────────────────────────── -->
+  <span class="anchor" id="contact"></span>
+  <div id="contact-section">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-body" style="margin-bottom:40px;">Whether you are an investor exploring a discretionary mandate, a family office evaluating systematic strategies, or a member of the financial press, we welcome the conversation.</p>
+
+        <div class="contact-info-block">
+          <div class="contact-info-item">
+            <div class="contact-info-label">General Inquiries</div>
+            <a href="mailto:info@robincapitalgroup.com" class="contact-info-value">info@robincapitalgroup.com</a>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-label">Media & Press</div>
+            <a href="mailto:media@robincapitalgroup.com" class="contact-info-value">media@robincapitalgroup.com</a>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-label">Research & Insights</div>
+            <a href="https://robincapitalgroup.substack.com" target="_blank" class="contact-info-value">robincapitalgroup.substack.com ↗</a>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-label">Location</div>
+            <span class="contact-info-value" style="color:var(--muted);">Miami Beach, Florida</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <form id="contact-form" onsubmit="sendEmail(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" name="from_name" class="form-input" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" name="from_email" class="form-input" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:20px;">
+            <label class="form-label">Inquiry Type</label>
+            <select name="inquiry_type" class="form-input form-select" required>
+              <option value="" disabled selected>Select an inquiry type</option>
+              <option value="Investor Inquiry">Investor Inquiry</option>
+              <option value="Family Office">Family Office</option>
+              <option value="RIA / Advisor">RIA / Advisor</option>
+              <option value="Media & Press">Media &amp; Press</option>
+              <option value="General">General</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-top:20px;">
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-input form-textarea" placeholder="Tell us how we can help..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submit-btn">
+            <span id="submit-text">Send Message</span>
+            <span id="submit-spinner" style="display:none;">Sending...</span>
+          </button>
+          <p id="form-success" style="display:none; margin-top:16px; font-size:13px; color:var(--gold); font-family:'JetBrains Mono',monospace; letter-spacing:0.5px;">✓ Message sent. We'll be in touch shortly.</p>
+          <p id="form-error" style="display:none; margin-top:16px; font-size:13px; color:#c0392b; font-family:'JetBrains Mono',monospace; letter-spacing:0.5px;">Something went wrong. Please email us directly.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- ── FOOTER ─────────────────────────────────────── -->
   <footer id="footer">
     <div class="footer-grid">
@@ -1582,7 +1772,7 @@
           <li><a href="#investment-strategies">Strategies</a></li>
           <li><a href="#risk-management">Risk Management</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
 
@@ -1609,8 +1799,46 @@
     </div>
   </footer>
 
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    // Bio toggle
+    // ── EMAILJS CONFIG ──
+    const EMAILJS_PUBLIC_KEY  = 'AGOf2wYHAzAM6vQyI';
+    const EMAILJS_SERVICE_ID  = 'service_weep165';
+    const EMAILJS_TEMPLATE_ID = 'template_ire2d0f';
+
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    function sendEmail(e) {
+      e.preventDefault();
+      const btn       = document.getElementById('submit-btn');
+      const text      = document.getElementById('submit-text');
+      const spinner   = document.getElementById('submit-spinner');
+      const success   = document.getElementById('form-success');
+      const error     = document.getElementById('form-error');
+
+      btn.disabled = true;
+      text.style.display = 'none';
+      spinner.style.display = 'inline';
+      success.style.display = 'none';
+      error.style.display   = 'none';
+
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, '#contact-form')
+        .then(() => {
+          spinner.style.display = 'none';
+          success.style.display = 'block';
+          document.getElementById('contact-form').reset();
+          btn.disabled = false;
+          text.style.display = 'inline';
+        })
+        .catch(() => {
+          spinner.style.display = 'none';
+          error.style.display   = 'block';
+          btn.disabled = false;
+          text.style.display = 'inline';
+        });
+    }
+  </script>
     function toggleBio(id, btn) {
       const el = document.getElementById(id);
       el.classList.toggle('open');
