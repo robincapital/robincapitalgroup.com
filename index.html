@@ -1792,11 +1792,11 @@
         <div class="contact-info-block">
           <div class="contact-info-item">
             <div class="contact-info-label">General Inquiries</div>
-            <a href="mailto:info@robincapitalgroup.com" class="contact-info-value">info@robincapitalgroup.com</a>
+            <a href="/cdn-cgi/l/email-protection#177e797178576578757e797476677e63767b70657862673974787a" class="contact-info-value"><span class="__cf_email__" data-cfemail="7811161e17380a171a11161b1908110c19141f0a170d08561b1715">[email&#160;protected]</span></a>
           </div>
           <div class="contact-info-item">
             <div class="contact-info-label">Media & Press</div>
-            <a href="mailto:media@robincapitalgroup.com" class="contact-info-value">media@robincapitalgroup.com</a>
+            <a href="/cdn-cgi/l/email-protection#751810111c1435071a171c1b1614051c01141912071a00055b161a18" class="contact-info-value"><span class="__cf_email__" data-cfemail="1e737b7a777f5e6c717c77707d7f6e776a7f72796c716b6e307d7173">[email&#160;protected]</span></a>
           </div>
           <div class="contact-info-item">
             <div class="contact-info-label">Research & Insights</div>
@@ -1858,7 +1858,7 @@
         </div>
         <p class="footer-tagline">Discretionary capital management across a flexible, mandate-free structure. Miami Beach, Florida.</p>
         <div class="footer-contact">
-          <a href="mailto:info@robincapitalgroup.com" style="color:var(--gold);">info@robincapitalgroup.com</a><br>
+          <a href="/cdn-cgi/l/email-protection#4821262e27083a272a21262b2938213c29242f3a273d38662b2725" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="87eee9e1e8c7f5e8e5eee9e4e6f7eef3e6ebe0f5e8f2f7a9e4e8ea">[email&#160;protected]</span></a><br>
           <a href="https://robincapitalgroup.substack.com" target="_blank" style="color:var(--muted); font-size:11px; letter-spacing:0.5px;">robincapitalgroup.substack.com ↗</a>
         </div>
       </div>
@@ -1898,7 +1898,7 @@
   </footer>
 
   <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     // ── EMAILJS CONFIG ──
     const EMAILJS_PUBLIC_KEY  = 'AGOf2wYHAzAM6vQyl';
@@ -1929,7 +1929,8 @@
           btn.disabled = false;
           text.style.display = 'inline';
         })
-        .catch(() => {
+        .catch((err) => {
+          console.error('EmailJS error:', JSON.stringify(err));
           spinner.style.display = 'none';
           error.style.display   = 'block';
           btn.disabled = false;
@@ -1946,15 +1947,33 @@
         : 'Read more <span class="arrow">↓</span>';
     }
 
-    // Mobile nav toggle
-    const toggle = document.getElementById('navToggle');
-    const nav    = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+    // ── MOBILE NAV TOGGLE ──
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded',
+          navLinks.classList.contains('open') ? 'true' : 'false');
+      });
+      // Close menu when a nav link is clicked
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
-    // Close mobile nav on link click
-    nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => nav.classList.remove('open'));
-    });
+    // ── HEADER SCROLL SHADOW ──
+    const header = document.getElementById('header');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        header.style.boxShadow = window.scrollY > 20
+          ? '0 2px 24px rgba(0,0,0,0.6)' : 'none';
+      }, { passive: true });
+    }
 
-    // Highlight active nav link on scroll
-    const sections = d
+  </script>
+</body>
+</html>
