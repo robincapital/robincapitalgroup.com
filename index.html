@@ -1712,6 +1712,7 @@
         <p class="team-bio-preview">Nick brings over twenty years of institutional experience in systematic and discretionary trading and portfolio management. He founded and built Robin Capital Group as a sole practitioner — designing its investment philosophy, constructing its three live strategies, and developing the systematic infrastructure that underlies the firm's operations.</p>
         <div class="team-bio-full" id="bio-nick">
           <p style="margin-bottom:12px;">Prior to founding RCG, Nick held senior roles at Citadel Securities, Citadel, and Bank of America in Chicago, New York, and London, covering rates, market making, and high-frequency trading. That career across three financial capitals — spanning institutional fixed income, derivatives, and systematic execution — shaped the cross-market perspective on risk and capital allocation that defines RCG's investment approach. RCG's track record since May 2022, across multiple market regimes and in real client capital, reflects that body of work entirely. Nick holds an M.S. in Finance and a B.S.E. from Universidad Adolfo Ibáñez (UAI) in Santiago, Chile, and currently holds his Series 65 as a registered Investment Advisor Representative.</p>
+          <p style="padding-top:12px; border-top:1px solid var(--border);">Nick is also Co-Founder and Co-CIO of <span style="color:var(--cream);">Nezumia</span>, a separate quantitative AI hedge fund co-founded with Patrick S. Huggins — a quantitative researcher with prior roles at Citadel Securities, Citadel, and HSBC, and holder of a Ph.D. in Computer Science with a concentration in Artificial Intelligence from Yale University and a B.S. in Mathematics and Computer Science from NYU. Nezumia represents a distinct thesis — one that recent advances in AI have made possible: a fully autonomous asset manager in which AI drives every stage of the investment process, from alpha generation and signal sourcing to execution and risk management, with no discretionary overlay. The two firms are independent ventures that happen to share a founder, not extensions of one another.</p>
         </div>
         <button class="team-read-more" onclick="toggleBio('bio-nick', this)">Read more <span class="arrow">↓</span></button>
       </div>
@@ -1791,11 +1792,11 @@
         <div class="contact-info-block">
           <div class="contact-info-item">
             <div class="contact-info-label">General Inquiries</div>
-            <a href="/cdn-cgi/l/email-protection#bfd6d1d9d0ffcdd0ddd6d1dcdecfd6cbded3d8cdd0cacf91dcd0d2" class="contact-info-value"><span class="__cf_email__" data-cfemail="f891969e97b88a979a91969b9988918c99949f8a978d88d69b9795">[email&#160;protected]</span></a>
+            <a href="mailto:info@robincapitalgroup.com" class="contact-info-value">info@robincapitalgroup.com</a>
           </div>
           <div class="contact-info-item">
             <div class="contact-info-label">Media & Press</div>
-            <a href="/cdn-cgi/l/email-protection#90fdf5f4f9f1d0e2fff2f9fef3f1e0f9e4f1fcf7e2ffe5e0bef3fffd" class="contact-info-value"><span class="__cf_email__" data-cfemail="e78a82838e86a79588858e898486978e93868b8095889297c984888a">[email&#160;protected]</span></a>
+            <a href="mailto:media@robincapitalgroup.com" class="contact-info-value">media@robincapitalgroup.com</a>
           </div>
           <div class="contact-info-item">
             <div class="contact-info-label">Research & Insights</div>
@@ -1857,7 +1858,7 @@
         </div>
         <p class="footer-tagline">Discretionary capital management across a flexible, mandate-free structure. Miami Beach, Florida.</p>
         <div class="footer-contact">
-          <a href="/cdn-cgi/l/email-protection#b6dfd8d0d9f6c4d9d4dfd8d5d7c6dfc2d7dad1c4d9c3c698d5d9db" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="0861666e67487a676a61666b6978617c69646f7a677d78266b6765">[email&#160;protected]</span></a><br>
+          <a href="mailto:info@robincapitalgroup.com" style="color:var(--gold);">info@robincapitalgroup.com</a><br>
           <a href="https://robincapitalgroup.substack.com" target="_blank" style="color:var(--muted); font-size:11px; letter-spacing:0.5px;">robincapitalgroup.substack.com ↗</a>
         </div>
       </div>
@@ -1897,7 +1898,7 @@
   </footer>
 
   <!-- EmailJS -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     // ── EMAILJS CONFIG ──
     const EMAILJS_PUBLIC_KEY  = 'AGOf2wYHAzAM6vQyl';
@@ -1956,4 +1957,23 @@
           navLinks.classList.contains('open') ? 'true' : 'false');
       });
       // Close menu when a nav link is clicked
-      nav
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // ── HEADER SCROLL SHADOW ──
+    const header = document.getElementById('header');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        header.style.boxShadow = window.scrollY > 20
+          ? '0 2px 24px rgba(0,0,0,0.6)' : 'none';
+      }, { passive: true });
+    }
+
+  </script>
+</body>
+</html>
