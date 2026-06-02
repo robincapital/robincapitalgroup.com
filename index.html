@@ -893,6 +893,8 @@
       justify-content: space-between;
       align-items: center;
       transition: padding-left 0.2s;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     .research-topic:first-child { border-top: 1px solid var(--border); }
@@ -904,6 +906,19 @@
       font-size: 18px;
       font-weight: 500;
       color: var(--cream);
+      transition: color 0.2s;
+    }
+
+    .research-topic:hover h4 { color: var(--gold2); }
+
+    .research-topic.research-all {
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .research-topic.research-all .topic-num {
+      font-size: 11px;
+      color: var(--gold2);
+      letter-spacing: 0.5px;
     }
 
     .research-topic .topic-num {
@@ -1682,19 +1697,27 @@
             <div class="perf-item-val">0.33</div>
           </div>
           <div class="perf-item">
-            <div class="perf-item-label">Max Drawdown</div>
-            <div class="perf-item-val">−6.71%</div>
+            <div class="perf-item-label">Avg Yield to Maturity</div>
+            <div class="perf-item-val">4.30%</div>
           </div>
           <div class="perf-item">
-            <div class="perf-item-label">Ann. Volatility</div>
-            <div class="perf-item-val">4.10%</div>
+            <div class="perf-item-label">Current Yield</div>
+            <div class="perf-item-val">3.57%</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Avg Duration</div>
+            <div class="perf-item-val">5.78 yr</div>
+          </div>
+          <div class="perf-item">
+            <div class="perf-item-label">Credit Quality</div>
+            <div class="perf-item-val">Aa1 / AA+</div>
           </div>
         </div>
         <div class="perf-benchmark">
           <span class="perf-bm-label">IEF Since Inception</span>
           <span class="perf-bm-val">+3.85%</span>
         </div>
-        <a class="perf-tearsheet" href="RCG_Safe_Haven_Tearsheet_May.pdf" target="_blank">View Full Tearsheet ↗</a>
+        <a class="perf-tearsheet" href="RCG_Safe_Haven_Tearsheet.html" target="_blank">View Full Tearsheet ↗</a>
       </div>
     </div>
 
@@ -1711,32 +1734,39 @@
         <p class="section-body" style="margin-bottom:36px;">RCG publishes ongoing research on portfolio construction, systematic alpha generation, and the discipline of managing capital across market regimes. Written by Nick Diaz, CIO — the intellectual framework behind every allocation decision, explained without a sales agenda.</p>
         <div class="research-cta">
           <a href="https://robincapitalgroup.substack.com" target="_blank" class="research-cta-btn primary-btn">Read the Series &amp; Subscribe →</a>
-          <a href="RCG_Investor_Deck_Jan2026.pdf" target="_blank" class="research-cta-btn">↓ Download Firm Materials</a>
+          <a href="RCG_Investor_Deck_May2026.pdf" target="_blank" class="research-cta-btn">↓ Download Firm Materials</a>
           <a href="RCG_Portfolio_Construction_WhitePaper-2.pdf" target="_blank" class="research-cta-btn">↓ White Paper — Alpha Sourcing</a>
         </div>
         <p style="font-size:11px; color:var(--muted); margin-top:16px;">Published every two weeks. Free to read.</p>
       </div>
       <div class="research-topics">
-        <div class="research-topic">
-          <h4>Six Years of Stealth, and Why That Changes Now</h4>
-          <span class="topic-num">01</span>
-        </div>
-        <div class="research-topic">
-          <h4>Why Alpha Decays — And What That Means for Your Process</h4>
-          <span class="topic-num">02</span>
-        </div>
-        <div class="research-topic">
+        <a href="https://robincapitalgroup.substack.com/p/mark-yourself-to-market" target="_blank" class="research-topic">
+          <h4>Mark Yourself to Market</h4>
+          <span class="topic-num">06 ↑</span>
+        </a>
+        <a href="https://robincapitalgroup.substack.com/p/how-to-think-about-drawdown-before" target="_blank" class="research-topic">
+          <h4>How to Think About Drawdown Before It Happens</h4>
+          <span class="topic-num">05</span>
+        </a>
+        <a href="https://robincapitalgroup.substack.com/p/what-correlated-assets-are-actually" target="_blank" class="research-topic">
+          <h4>What Correlated Assets Are Actually Telling You</h4>
+          <span class="topic-num">04</span>
+        </a>
+        <a href="https://robincapitalgroup.substack.com/p/the-case-for-a-mandate-free-strategy" target="_blank" class="research-topic">
           <h4>The Case for a Mandate-Free Strategy</h4>
           <span class="topic-num">03</span>
-        </div>
-        <div class="research-topic">
-          <h4>What Correlated Assets Are Actually Telling You</h4>
-          <span class="topic-num">04 ↑</span>
-        </div>
-        <div class="research-topic">
-          <h4>How to Think About Drawdown Before It Happens</h4>
-          <span class="topic-num">05 ↑</span>
-        </div>
+        </a>
+        <a href="https://robincapitalgroup.substack.com/p/why-alpha-decays-and-what-that-means" target="_blank" class="research-topic">
+          <h4>Why Alpha Decays — And What That Means for Your Process</h4>
+          <span class="topic-num">02</span>
+        </a>
+        <a href="https://robincapitalgroup.substack.com/p/six-years-of-stealth-and-why-that" target="_blank" class="research-topic">
+          <h4>Six Years of Stealth, and Why That Changes Now</h4>
+          <span class="topic-num">01</span>
+        </a>
+        <a href="https://robincapitalgroup.substack.com/archive" target="_blank" class="research-topic research-all">
+          <span class="topic-num">View all articles →</span>
+        </a>
       </div>
     </div>
   </div>
