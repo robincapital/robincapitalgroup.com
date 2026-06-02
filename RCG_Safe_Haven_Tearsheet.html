@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RCG Safe Haven — Tear Sheet</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0d0d0d;--panel:#181818;--panel2:#1d1d1d;--border:#2c2c2c;
+    --gold:#c29b2e;--goldv:#d9b341;--white:#f0f0f0;--label:#8c8c8c;--body:#a8a8a8;
+    --green:#5cb874;--red:#cf6b5a;--blue:#3b82f6}
+  html,body{background:var(--bg)}
+  body{font-family:Arial,Helvetica,sans-serif;color:var(--body);line-height:1.4;
+    padding:28px 16px;-webkit-font-smoothing:antialiased}
+  .page{max-width:960px;margin:0 auto 26px;background:var(--bg);padding:34px 38px 22px;
+    border:1px solid var(--border);border-radius:6px}
+  .hdr{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:9px}
+  .hdr-l{color:var(--gold);font-weight:700;font-size:15px;letter-spacing:.6px}
+  .hdr-r{text-align:right;color:var(--label);font-size:10px;line-height:1.5}
+  .rule{height:1.5px;background:var(--gold);opacity:.85;margin-bottom:22px}
+  h1{color:var(--white);font-size:30px;font-weight:700;letter-spacing:-.3px}
+  .sub{color:var(--body);font-size:12px;margin:5px 0 20px}
+  /* top kpi row */
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:20px}
+  .kpi{background:var(--panel);border:1px solid var(--border);border-radius:6px;
+    padding:14px 8px;text-align:center}
+  .kpi-l{color:var(--label);font-size:8.5px;letter-spacing:.5px;margin-bottom:9px;
+    text-transform:uppercase}
+  .kpi-v{color:var(--goldv);font-size:21px;font-weight:700;line-height:1}
+  /* panels */
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:8px;
+    padding:16px 20px;margin-bottom:16px}
+  .sec{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;margin-bottom:13px}
+  .ov{color:var(--body);font-size:11.5px;line-height:1.65}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .drow{display:flex;justify-content:space-between;padding:5px 0;
+    border-bottom:1px solid rgba(255,255,255,.04);font-size:11.5px}
+  .drow:last-child{border-bottom:none}
+  .dl{color:var(--label)}
+  .dv{color:var(--white);font-weight:700}
+  /* tables */
+  table{width:100%;border-collapse:collapse}
+  .rtbl th{color:var(--label);font-size:9px;font-weight:700;letter-spacing:.5px;
+    text-transform:uppercase;text-align:right;padding:6px 6px}
+  .rtbl td{font-size:11.5px;text-align:right;padding:7px 6px}
+  .rtbl .lbl{text-align:left;color:var(--white);font-weight:700}
+  .rtbl .lbl.muted{color:var(--label);font-weight:400}
+  .rtbl tr+tr td{border-top:1px solid rgba(255,255,255,.05)}
+  .pos{color:var(--green)}
+  .neg{color:var(--red)}
+  /* monthly grid */
+  .mo th{font-size:8.5px;padding:5px 3px;text-align:center}
+  .mo td{font-size:9px;padding:5px 3px;text-align:center}
+  .mo .yr{color:var(--white);font-weight:700;text-align:left}
+  .mo .ytd{font-weight:700}
+  .mo .dash{color:#4a4a4a}
+  /* charts */
+  .chart{width:100%;height:auto;display:block}
+  .grid{stroke:#262626;stroke-width:1}
+  .ytick{fill:var(--label);font-size:9px;text-anchor:end}
+  .xtick{fill:var(--label);font-size:9px;text-anchor:middle}
+  .line-strat{fill:none;stroke:var(--blue);stroke-width:2.2}
+  .line-ief{fill:none;stroke:#8c8c8c;stroke-width:1.5;stroke-dasharray:4 3}
+  .lbl-strat{fill:var(--blue);font-size:10px;font-weight:700;text-anchor:end}
+  .lbl-ief{fill:#a0a0a0;font-size:10px;font-weight:700;text-anchor:end}
+  .cap{color:var(--label);font-size:9px;font-style:italic;margin-top:6px}
+  /* bar charts */
+  .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .bar-l{width:128px;text-align:right;color:var(--body);font-size:10.5px}
+  .bar-track{position:relative;flex:1;height:18px;background:var(--panel2);
+    border-radius:3px}
+  .bar-fill{height:100%;background:linear-gradient(90deg,#2f6fd6,#4a8af0);
+    border-radius:3px}
+  .bar-v{position:absolute;right:8px;top:50%;transform:translateY(-50%);
+    color:var(--white);font-size:10px;font-weight:700}
+  /* income page */
+  .ikpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:16px}
+  .ikpi{background:var(--panel);border:1px solid var(--border);border-radius:8px;
+    padding:14px 10px;text-align:center}
+  .ikpi-l{color:var(--label);font-size:8.5px;letter-spacing:.5px;
+    text-transform:uppercase;margin-bottom:9px}
+  .ikpi-v{color:var(--goldv);font-size:20px;font-weight:700;line-height:1}
+  .illus{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .illus-big{color:var(--goldv);font-size:36px;font-weight:700;line-height:1}
+  .illus-unit{color:var(--body);font-size:13px}
+  .illus-unit b{color:var(--white)}
+  .note{color:var(--body);font-size:11.5px;line-height:1.6;margin-top:13px}
+  .note b{color:var(--white)}
+  .ivcol .subh{font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;
+    margin-bottom:8px;font-weight:700}
+  .ivcol .subh.income{color:var(--green)}
+  .ivcol .subh.price{color:var(--label)}
+  .ivcol .big{color:var(--white);font-size:17px;font-weight:700;margin-bottom:7px}
+  .ivcol .txt{color:var(--body);font-size:11.5px;line-height:1.6}
+  .ivcol .txt b{color:var(--white)}
+  .disc{color:var(--label);font-size:9px;line-height:1.55}
+  .disc b{color:var(--body)}
+  .ftr{display:flex;justify-content:space-between;color:var(--label);font-size:8.5px;
+    font-style:italic;border-top:1px solid var(--border);padding-top:8px;margin-top:18px}
+  @media print{body{padding:0}.page{border:none;border-radius:0;margin:0;
+    page-break-after:always}}
+  @media (max-width:680px){
+    .kpis{grid-template-columns:repeat(3,1fr)}
+    .ikpis{grid-template-columns:repeat(2,1fr)}
+    .twocol{grid-template-columns:1fr}
+    .page{padding:22px 16px}
+  }
+</style></head><body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+  <div class="hdr">
+    <div class="hdr-l">ROBIN CAPITAL GROUP</div>
+    <div class="hdr-r">Report Date: May 29, 2026<br>Inception: May 2022</div>
+  </div>
+  <div class="rule"></div>
+
+  <h1>RCG Safe Haven</h1>
+  <div class="sub">Fixed Income &middot; Defensive &middot; Inception: May 2022 &middot; Benchmark: iShares 7-10 Year Treasury (IEF)</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-l">MTD</div><div class="kpi-v">+0.32%</div></div>
+<div class="kpi"><div class="kpi-l">QTD</div><div class="kpi-v">+0.20%</div></div>
+<div class="kpi"><div class="kpi-l">YTD</div><div class="kpi-v">+0.21%</div></div>
+<div class="kpi"><div class="kpi-l">1-YEAR</div><div class="kpi-v">+5.51%</div></div>
+<div class="kpi"><div class="kpi-l">SINCE INCEPTION</div><div class="kpi-v">+16.00%</div></div>
+<div class="kpi"><div class="kpi-l">SORTINO (SI)</div><div class="kpi-v">0.33</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="sec">Strategy Overview</div>
+    <p class="ov">The RCG Safe Haven strategy is engineered to preserve capital during periods of elevated
+    volatility and market dislocation. The portfolio maintains low-to-inverse correlations with major equity
+    indices by concentrating in high-quality, interest-bearing government and investment-grade instruments.
+    Tactical duration management exploits dislocations along the U.S. Treasury yield curve. The strategy
+    dynamically adjusts its maturity profile in response to shifts in the macro-rate environment, targeting
+    asymmetric risk/reward across the curve, with selective metals and commodities exposure as a hedge
+    against inflationary pressures.</p>
+  </div>
+
+  <div class="twocol">
+    <div class="panel" style="margin-bottom:0;">
+      <div class="sec">Fund Details</div>
+      <div class="drow"><span class="dl">Investment Advisor</span><span class="dv">Robin Capital Group LLC</span></div>
+<div class="drow"><span class="dl">Portfolio Manager</span><span class="dv">Nick Diaz</span></div>
+<div class="drow"><span class="dl">Currency</span><span class="dv">USD</span></div>
+<div class="drow"><span class="dl">Minimum Investment</span><span class="dv">$250,000</span></div>
+<div class="drow"><span class="dl">Custodian</span><span class="dv">Interactive Brokers LLC</span></div>
+<div class="drow"><span class="dl">Leverage</span><span class="dv">No Leverage Used</span></div>
+<div class="drow"><span class="dl">Strategy Focus</span><span class="dv">Protection and Income</span></div>
+<div class="drow"><span class="dl">Risk Tolerance</span><span class="dv">Conservative</span></div>
+    </div>
+    <div class="panel" style="margin-bottom:0;">
+      <div class="sec">Risk &amp; Performance</div>
+      <div class="drow"><span class="dl">Sortino Ratio (SI)</span><span class="dv">0.33</span></div>
+<div class="drow"><span class="dl">Sharpe Ratio (SI)</span><span class="dv">0.20</span></div>
+<div class="drow"><span class="dl">Max Drawdown</span><span class="dv">−6.71%</span></div>
+<div class="drow"><span class="dl">Annualized Volatility</span><span class="dv">4.10%</span></div>
+<div class="drow"><span class="dl">Positive Months</span><span class="dv">59.4%</span></div>
+<div class="drow"><span class="dl">Negative Months</span><span class="dv">40.6%</span></div>
+<div class="drow"><span class="dl">IEF Since Inception</span><span class="dv">+3.85%</span></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:16px;">
+    <div class="sec">Period Returns &mdash; Net of Fees</div>
+    <table class="rtbl">
+      <tr><th class="lbl" style="text-align:left;"></th><th>MTD</th><th>QTD</th><th>YTD</th><th>1-YEAR</th><th>SINCE INCEPTION</th></tr>
+      <tr><td class="lbl">RCG Safe Haven</td><td class="pos">+0.32%</td><td class="pos">+0.20%</td><td class="pos">+0.21%</td><td class="pos">+5.51%</td><td class="pos">+16.00%</td></tr>
+      <tr><td class="lbl muted">IEF</td><td class="neg">−0.02%</td><td class="neg">−0.17%</td><td class="neg">−0.31%</td><td class="pos">+3.80%</td><td class="pos">+3.85%</td></tr>
+    </table>
+  </div>
+
+  <div class="panel">
+    <div class="sec">Historical Monthly Returns &mdash; Net of Fees (Inception: May 2022)</div>
+    <table class="rtbl mo">
+      <tr><th style="text-align:left;">Year</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th><th>YTD</th></tr>
+      <tr><td class="yr">2022</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="pos">+0.46%</span></td><td><span class="neg">−4.85%</span></td><td><span class="pos">+1.06%</span></td><td><span class="neg">−1.16%</span></td><td><span class="neg">−4.73%</span></td><td><span class="neg">−1.81%</span></td><td><span class="pos">+5.40%</span></td><td><span class="pos">+1.44%</span></td><td class="ytd neg">−4.19%</td></tr>
+<tr><td class="yr">2023</td><td><span class="pos">+3.72%</span></td><td><span class="neg">−3.77%</span></td><td><span class="pos">+2.23%</span></td><td><span class="pos">+0.61%</span></td><td><span class="neg">−0.53%</span></td><td><span class="pos">+0.40%</span></td><td><span class="pos">+1.18%</span></td><td><span class="pos">+1.88%</span></td><td><span class="neg">−0.81%</span></td><td><span class="pos">+0.79%</span></td><td><span class="pos">+0.95%</span></td><td><span class="pos">+0.74%</span></td><td class="ytd pos">+7.39%</td></tr>
+<tr><td class="yr">2024</td><td><span class="pos">+0.38%</span></td><td><span class="neg">−0.24%</span></td><td><span class="pos">+0.22%</span></td><td><span class="neg">−0.59%</span></td><td><span class="pos">+1.65%</span></td><td><span class="pos">+1.31%</span></td><td><span class="pos">+1.88%</span></td><td><span class="pos">+0.64%</span></td><td><span class="pos">+0.38%</span></td><td><span class="pos">+0.16%</span></td><td><span class="neg">−0.05%</span></td><td><span class="pos">+0.51%</span></td><td class="ytd pos">+6.27%</td></tr>
+<tr><td class="yr">2025</td><td><span class="pos">+0.32%</span></td><td><span class="pos">+0.32%</span></td><td><span class="neg">−0.15%</span></td><td><span class="pos">+0.52%</span></td><td><span class="neg">−0.31%</span></td><td><span class="pos">+2.28%</span></td><td><span class="neg">−0.20%</span></td><td><span class="pos">+1.20%</span></td><td><span class="pos">+0.61%</span></td><td><span class="pos">+0.46%</span></td><td><span class="pos">+0.24%</span></td><td><span class="pos">+0.60%</span></td><td class="ytd pos">+6.03%</td></tr>
+<tr><td class="yr">2026</td><td><span class="pos">+0.97%</span></td><td><span class="pos">+3.32%</span></td><td><span class="neg">−4.13%</span></td><td><span class="neg">−0.12%</span></td><td><span class="pos">+0.32%</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td class="ytd pos">+0.21%</td></tr>
+
+    </table>
+  </div>
+
+  <div class="panel">
+    <div class="sec">Cumulative Growth &mdash; Strategy vs Benchmark (Inception to Date)</div>
+    <svg viewBox="0 0 880 150" class="chart" preserveAspectRatio="xMidYMid meet">
+  <line x1="44" y1="12.0" x2="810" y2="12.0" class="grid"/><text x="36" y="15.0" class="ytick">+20%</text>
+<line x1="44" y1="47.6" x2="810" y2="47.6" class="grid"/><text x="36" y="50.6" class="ytick">+10%</text>
+<line x1="44" y1="83.2" x2="810" y2="83.2" class="grid"/><text x="36" y="86.2" class="ytick">0%</text>
+<line x1="44" y1="118.9" x2="810" y2="118.9" class="grid"/><text x="36" y="121.9" class="ytick">-10%</text>
+
+  <polyline points="44.0,83.2 59.6,87.8 75.3,92.4 90.9,97.0 106.5,101.6 122.2,106.2 137.8,110.7 153.4,115.3 169.1,113.2 184.7,111.0 200.3,108.9 216.0,106.8 231.6,104.6 247.2,103.1 262.9,101.6 278.5,100.0 294.1,98.5 309.8,97.0 325.4,95.5 341.0,93.9 356.7,93.2 372.3,92.5 387.9,91.8 403.6,91.1 419.2,90.4 434.8,89.4 450.4,88.3 466.1,87.3 481.7,86.3 497.3,85.3 513.0,84.3 528.6,83.2 544.2,82.5 559.9,81.8 575.5,81.1 591.1,80.4 606.8,79.7 622.4,77.7 638.0,75.6 653.7,73.6 669.3,71.5 684.9,69.5 700.6,67.5 716.2,65.4 731.8,66.1 747.5,66.8 763.1,67.5 778.7,68.2 794.4,68.9 810.0,69.5" class="line-ief"/>
+  <polyline points="44.0,83.2 59.6,81.6 75.3,99.0 90.9,95.4 106.5,99.4 122.2,115.4 137.8,121.3 153.4,104.1 169.1,99.3 184.7,86.6 200.3,99.9 216.0,92.4 231.6,90.3 247.2,92.1 262.9,90.7 278.5,86.6 294.1,80.0 309.8,82.9 325.4,80.1 341.0,76.6 356.7,74.0 372.3,72.6 387.9,73.4 403.6,72.6 419.2,74.8 434.8,68.8 450.4,63.9 466.1,56.9 481.7,54.4 497.3,53.0 513.0,52.3 528.6,52.5 544.2,50.6 559.9,49.3 575.5,48.1 591.1,48.7 606.8,46.6 622.4,47.8 638.0,38.9 653.7,39.7 669.3,34.9 684.9,32.4 700.6,30.6 716.2,29.6 731.8,27.1 747.5,23.1 763.1,9.3 778.7,27.1 794.4,27.6 810.0,26.3" class="line-strat"/>
+  <text x="816.0" y="24.3" class="lbl-strat">Safe Haven: +16.0%</text>
+  <text x="816.0" y="79.5" class="lbl-ief">IEF: +3.9%</text>
+  <text x="44.0" y="142.0" class="xtick">May'22</text>
+<text x="137.8" y="142.0" class="xtick">Nov'22</text>
+<text x="231.6" y="142.0" class="xtick">May'23</text>
+<text x="325.4" y="142.0" class="xtick">Nov'23</text>
+<text x="419.2" y="142.0" class="xtick">May'24</text>
+<text x="513.0" y="142.0" class="xtick">Nov'24</text>
+<text x="606.8" y="142.0" class="xtick">May'25</text>
+<text x="700.6" y="142.0" class="xtick">Nov'25</text>
+<text x="794.4" y="142.0" class="xtick">May'26</text>
+
+</svg>
+    <p class="cap">Cumulative time-weighted return (TWR) from May 2022 inception. Endpoints calibrated to published Since-Inception values.</p>
+  </div>
+
+  <div class="ftr">
+    <span>Robin Capital Group LLC &middot; RCG Safe Haven &middot; Past performance is not indicative of future results. &middot; FOR AUTHORIZED USE ONLY</span>
+    <span>Page 1</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <div class="hdr">
+    <div class="hdr-l">ROBIN CAPITAL GROUP</div>
+    <div class="hdr-r">Report Date: May 29, 2026<br>Inception: May 2022</div>
+  </div>
+  <div class="rule"></div>
+
+  <h1>RCG Safe Haven</h1>
+  <div class="sub">As of May 29, 2026 &middot; Inception: May 2022</div>
+
+  <div class="twocol">
+    <div class="panel" style="margin-bottom:0;">
+      <div class="sec">Asset Class</div>
+      <div class="bar-row"><div class="bar-l">UST Bonds</div><div class="bar-track"><div class="bar-fill" style="width:100.0%"></div><span class="bar-v">85.9%</span></div></div>
+<div class="bar-row"><div class="bar-l">Equity Miners</div><div class="bar-track"><div class="bar-fill" style="width:9.0%"></div><span class="bar-v">7.7%</span></div></div>
+<div class="bar-row"><div class="bar-l">Commodities (SLV)</div><div class="bar-track"><div class="bar-fill" style="width:3.0%"></div><span class="bar-v">2.6%</span></div></div>
+<div class="bar-row"><div class="bar-l">Cash & Equivalents</div><div class="bar-track"><div class="bar-fill" style="width:3.6%"></div><span class="bar-v">3.1%</span></div></div>
+<div class="bar-row"><div class="bar-l">Other</div><div class="bar-track"><div class="bar-fill" style="width:2.0%"></div><span class="bar-v">0.7%</span></div></div>
+
+    </div>
+    <div class="panel" style="margin-bottom:0;">
+      <div class="sec">Maturity Bucket</div>
+      <div class="bar-row"><div class="bar-l">Short (2-5y)</div><div class="bar-track"><div class="bar-fill" style="width:11.4%"></div><span class="bar-v">5.0%</span></div></div>
+<div class="bar-row"><div class="bar-l">Intermediate (5-10y)</div><div class="bar-track"><div class="bar-fill" style="width:84.3%"></div><span class="bar-v">37.0%</span></div></div>
+<div class="bar-row"><div class="bar-l">Long (10y+)</div><div class="bar-track"><div class="bar-fill" style="width:100.0%"></div><span class="bar-v">43.9%</span></div></div>
+<div class="bar-row"><div class="bar-l">Metals / Miners</div><div class="bar-track"><div class="bar-fill" style="width:23.5%"></div><span class="bar-v">10.3%</span></div></div>
+<div class="bar-row"><div class="bar-l">Cash</div><div class="bar-track"><div class="bar-fill" style="width:7.1%"></div><span class="bar-v">3.1%</span></div></div>
+
+    </div>
+  </div>
+
+  <div class="twocol" style="margin-top:16px;">
+    <div class="panel" style="margin-bottom:0;">
+      <div class="sec">Management Fees</div>
+      <div class="drow"><span class="dl">Non-Qualified Investors</span><span class="dv">1.50% annualized</span></div>
+<div class="drow"><span class="dl">Qualified Investors</span><span class="dv">1.25% + 15% perf</span></div>
+<div class="drow"><span class="dl">Non-U.S. Persons</span><span class="dv">2.00% annualized</span></div>
+<div class="drow"><span class="dl">All returns</span><span class="dv">NET of mgmt fees</span></div>
+<div class="drow"><span class="dl">Required</span><span class="dv">RCG DIMA</span></div>
+    </div>
+    <div class="panel" style="margin-bottom:0;">
+      <div class="sec">Investor Information</div>
+      <div class="drow"><span class="dl">Purpose</span><span class="dv">Income and Protection</span></div>
+<div class="drow"><span class="dl">Investor Profile</span><span class="dv">Long Only</span></div>
+<div class="drow"><span class="dl">Lock-up Period</span><span class="dv">None</span></div>
+<div class="drow"><span class="dl">Redemption Window</span><span class="dv">Unrestricted</span></div>
+<div class="drow"><span class="dl">Recommended Horizon</span><span class="dv">1 Year +</span></div>
+<div class="drow"><span class="dl">Account Type</span><span class="dv">Cash or Margin</span></div>
+<div class="drow"><span class="dl">Leverage</span><span class="dv">No Leverage Used</span></div>
+<div class="drow"><span class="dl">Suitability</span><span class="dv">HNW · RIA · FO</span></div>
+<div class="drow"><span class="dl">Taxation</span><span class="dv">U.S. 1099</span></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:16px;">
+    <div class="sec">Important Disclosures</div>
+    <p class="disc">This document does not constitute either an offer to sell or the solicitation of any offer to
+    buy the investment product discussed herein. All investors and potential investors should be aware that an
+    investment with Robin Capital Group LLC (RCG) is a speculative investment, involves risk, and could lose
+    money. No representation or warranty is made by RCG as to the accuracy or completeness of the information
+    herein, including historical performance data. RCG has relied upon Interactive Brokers (IB) to provide
+    historical portfolio and risk/return metrics. Performance results have been calculated by RCG using IB tools
+    on a time-weighted basis and have not been audited by outside parties. See www.interactivebrokers.com for
+    additional disclosures. Past performance may not be indicative of future results. All performance data is
+    net of management fees, calculated as the daily returns of a proxy account vested in each strategy. Returns
+    across accounts may differ due to execution, allocation, fees, and investment periods.</p>
+    <p class="disc" style="margin-top:10px;"><b>Investment Risks:</b> Interest Rate, Reinvestment, Commodity, Model, Market, Execution Lag.</p>
+    <p class="disc" style="margin-top:10px;">Data sourced from Interactive Brokers PortfolioAnalyst. Returns are time-weighted (TWR). Benchmark: IEF (iShares 7-10 Year Treasury Bond ETF).</p>
+  </div>
+
+  <div class="ftr">
+    <span>Robin Capital Group LLC &middot; RCG Safe Haven &middot; Past performance is not indicative of future results. &middot; FOR AUTHORIZED USE ONLY</span>
+    <span>Page 2</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 — INCOME / YIELD ============ -->
+<div class="page">
+  <div class="hdr">
+    <div class="hdr-l">ROBIN CAPITAL GROUP</div>
+    <div class="hdr-r">Report Date: May 29, 2026<br>Inception: May 2022</div>
+  </div>
+  <div class="rule"></div>
+
+  <h1>RCG Safe Haven</h1>
+  <div class="sub">Income &amp; Yield Profile &middot; As of May 29, 2026 &middot; Inception: May 2022</div>
+
+  <div class="panel" style="padding:15px 20px;">
+    <div class="sec">Income &amp; Yield Profile</div>
+    <p class="ov">Safe Haven is an income-and-carry strategy: a laddered book of U.S. Treasuries held to harvest
+    contractual coupon income. When rates rise, the bonds mark down on a price basis &mdash; but that markdown
+    pulls back to par at maturity while coupon income keeps accruing, so mark-to-market monthly returns
+    understate the strategy. The forward yield metrics below describe what the model portfolio is engineered to
+    earn and apply to any account managed to the strategy.</p>
+  </div>
+
+  <div class="ikpis">
+    <div class="ikpi"><div class="ikpi-l">Avg Yield to Maturity</div><div class="ikpi-v">4.30%</div></div>
+<div class="ikpi"><div class="ikpi-l">Current Yield · Treasury</div><div class="ikpi-v">3.98%</div></div>
+<div class="ikpi"><div class="ikpi-l">Blended Current Yield</div><div class="ikpi-v">3.57%</div></div>
+<div class="ikpi"><div class="ikpi-l">Average Coupon</div><div class="ikpi-v">3.91%</div></div>
+<div class="ikpi"><div class="ikpi-l">Average Duration</div><div class="ikpi-v">5.78 yr</div></div>
+<div class="ikpi"><div class="ikpi-l">Average Maturity</div><div class="ikpi-v">6.76 yr</div></div>
+<div class="ikpi"><div class="ikpi-l">Credit Quality</div><div class="ikpi-v">Aa1 / AA+</div></div>
+<div class="ikpi"><div class="ikpi-l">1-Yr Carry Cushion</div><div class="ikpi-v">+74 bps</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="sec">Illustrative Income &mdash; Per Dollar Invested</div>
+    <div class="illus">
+      <div class="illus-big">$3,570</div>
+      <div class="illus-unit">per year, for every <b>$100,000</b> invested &nbsp;&middot;&nbsp; &asymp; $298 / month per $100k</div>
+    </div>
+    <p class="note">Income scales linearly with account size &mdash; a <b>$250,000</b> account would generate
+    roughly <b>$8,925/year</b> (&asymp; $744/month). Figures use the strategy's blended current
+    yield (3.57%); the Treasury sleeve alone currently yields 3.98%. These are illustrative
+    estimates, not guarantees &mdash; actual income varies with holdings, market prices, and the timing of
+    contributions.</p>
+  </div>
+
+  <div class="panel">
+    <div class="sec">Income vs. Mark-to-Market</div>
+    <div class="twocol">
+      <div class="ivcol">
+        <div class="subh income">&#9679; Income engine &mdash; contractual</div>
+        <div class="big">3.57% blended yield</div>
+        <div class="txt">Coupon income accrues every month regardless of price marks. At a 3.98% current
+        yield on the Treasury sleeve and a 4.30% yield-to-maturity, this cash flow is contractual and
+        senior &mdash; backed 100% by U.S. Government credit (Aa1 / AA+).</div>
+      </div>
+      <div class="ivcol">
+        <div class="subh price">&#9679; Price &mdash; mark-to-market</div>
+        <div class="big">Reverts to par</div>
+        <div class="txt">At 5.78-yr duration, a +100 bp rate move marks the book down ~5.8% on
+        paper &mdash; but every dollar of that markdown accretes back as bonds pull to par. The carry cushion
+        absorbs a <b>+74 bp</b> rate rise over the next year before a 1-year total return would turn
+        negative.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="padding:14px 20px;">
+    <p class="disc">Source: Interactive Brokers PortfolioAnalyst, Safe Haven model portfolio. Yield to maturity,
+    current yield, duration, average maturity, and credit quality are characteristics of the model portfolio held
+    across all accounts managed to the strategy; they are forward-looking estimates that change as holdings,
+    prices, and rates move, and are not guarantees. Illustrative income = invested capital &times; blended current
+    yield and scales linearly with account size; it does not reflect any specific client account. The 1-year carry
+    cushion is an approximation (yield &divide; duration) and ignores convexity and reinvestment. Current yield =
+    coupon income &divide; market value.</p>
+  </div>
+
+  <div class="ftr">
+    <span>Robin Capital Group LLC &middot; RCG Safe Haven &middot; Past performance is not indicative of future results. &middot; FOR AUTHORIZED USE ONLY</span>
+    <span>Page 3</span>
+  </div>
+</div>
+
+</body></html>
