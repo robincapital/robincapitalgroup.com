@@ -9,7 +9,6 @@
   <meta name="google-site-verification" content="Yp6hqZSl48KAGt0ZnFh2akQW5ugwqFCZzD_iotHYK8o" />
   <meta name="geo.region" content="US-FL" />
   <meta name="geo.placename" content="Miami Beach, Florida" />
-  <meta name="twitter:site" content="@robincapital19">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -499,7 +498,7 @@
     .welcome-chart-full {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 36px 40px 28px;
+      padding: 0 40px;
       border: 1px solid var(--border);
       background: var(--bg2);
       overflow: hidden;
@@ -509,78 +508,6 @@
       width: 100%;
       height: auto;
       display: block;
-    }
-
-    .alpha-attr-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    .alpha-attr-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--cream);
-      letter-spacing: 0.3px;
-      margin: 0;
-    }
-    .alpha-attr-subtitle {
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin: 0;
-    }
-    .alpha-attr-legend {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      margin: 18px 0 6px;
-      font-size: 11.5px;
-      color: var(--body);
-      letter-spacing: 0.5px;
-    }
-    .alpha-attr-legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .alpha-attr-legend-swatch {
-      width: 14px;
-      height: 14px;
-      display: inline-block;
-    }
-    .alpha-attr-chart {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .alpha-attr-footer {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.5px;
-    }
-    .alpha-attr-footer strong {
-      color: var(--body);
-      font-weight: 500;
-    }
-
-    @media (max-width: 720px) {
-      .alpha-attr-header { flex-direction: column; gap: 6px; }
-      .alpha-attr-title { font-size: 19px; }
-      .alpha-attr-legend { gap: 14px; font-size: 10.5px; }
     }
 
     .welcome-text p {
@@ -1502,15 +1429,15 @@
 
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="hero-stat-val">+214.1%</div>
+        <div class="hero-stat-val">+213.6%</div>
         <div class="hero-stat-label">Inflection 2.0 · Since Inception</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-val">+112.7%</div>
+        <div class="hero-stat-val">+112.8%</div>
         <div class="hero-stat-label">Dynamic Macro · Since Inception</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-val">+13.4%</div>
+        <div class="hero-stat-val">+13.38%</div>
         <div class="hero-stat-label">Safe Haven · Since Inception</div>
       </div>
       <div class="hero-stat">
@@ -1546,102 +1473,12 @@
         </div>
       </div>
     </div>
-    <!-- Alpha attribution chart: strategies vs benchmarks -->
-    <!-- VERIFY BEFORE DEPLOY: TRAILING 1-YEAR figures (both strategy & benchmark) are PROVISIONAL.
-         Strategy 1Y computed from golden-copy monthly grid; benchmark 1Y from totalrealreturns (as of ~Aug 7 2026).
-         YTD 2026 group is IB-sourced and final. Confirm 1Y vs IB PortfolioAnalyst before publishing. -->
+    <!-- Alpha chart full width, fully visible -->
     <div class="welcome-chart-full">
-      <div class="alpha-attr-header">
-        <h3 class="alpha-attr-title">Performance vs. Benchmarks</h3>
-        <p class="alpha-attr-subtitle">YTD &amp; 1-Year Returns · As of July 31, 2026</p>
-      </div>
-
-      <div class="alpha-attr-legend">
-        <span class="alpha-attr-legend-item"><span class="alpha-attr-legend-swatch" style="background:#D4AF37;"></span>RCG Strategy</span>
-        <span class="alpha-attr-legend-item"><span class="alpha-attr-legend-swatch" style="background:#5A6B7D;"></span>SPY · S&amp;P 500</span>
-        <span class="alpha-attr-legend-item"><span class="alpha-attr-legend-swatch" style="background:#4A5568;"></span>IWM · Russell 2000</span>
-        <span class="alpha-attr-legend-item"><span class="alpha-attr-legend-swatch" style="background:#3A4553;"></span>IEF · 7-10Y Treasury</span>
-      </div>
-
-      <svg class="alpha-attr-chart" viewBox="0 0 1100 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Performance of RCG strategies versus SPY, IWM, and IEF benchmarks for YTD 2026 and trailing 1-year, as of July 31 2026">
-        <defs>
-          <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#E8C84A"/>
-            <stop offset="100%" stop-color="#B8960C"/>
-          </linearGradient>
-        </defs>
-        <g font-family="Inter, system-ui, sans-serif" font-size="11" fill="#888888">
-          <line x1="70" y1="465.00" x2="1080" y2="465.00" stroke="#2A2A2A" stroke-width="1" stroke-dasharray="2,3"/>
-          <text x="60" y="469.00" text-anchor="end">-5%</text>
-          <line x1="70" y1="420.00" x2="1080" y2="420.00" stroke="#444444" stroke-width="1.5"/>
-          <text x="60" y="424.00" text-anchor="end">0%</text>
-          <line x1="70" y1="375.00" x2="1080" y2="375.00" stroke="#2A2A2A" stroke-width="1" stroke-dasharray="2,3"/>
-          <text x="60" y="379.00" text-anchor="end">5%</text>
-          <line x1="70" y1="330.00" x2="1080" y2="330.00" stroke="#2A2A2A" stroke-width="1"/>
-          <text x="60" y="334.00" text-anchor="end">10%</text>
-          <line x1="70" y1="285.00" x2="1080" y2="285.00" stroke="#2A2A2A" stroke-width="1" stroke-dasharray="2,3"/>
-          <text x="60" y="289.00" text-anchor="end">15%</text>
-          <line x1="70" y1="240.00" x2="1080" y2="240.00" stroke="#2A2A2A" stroke-width="1"/>
-          <text x="60" y="244.00" text-anchor="end">20%</text>
-          <line x1="70" y1="195.00" x2="1080" y2="195.00" stroke="#2A2A2A" stroke-width="1" stroke-dasharray="2,3"/>
-          <text x="60" y="199.00" text-anchor="end">25%</text>
-          <line x1="70" y1="150.00" x2="1080" y2="150.00" stroke="#2A2A2A" stroke-width="1"/>
-          <text x="60" y="154.00" text-anchor="end">30%</text>
-          <line x1="70" y1="105.00" x2="1080" y2="105.00" stroke="#2A2A2A" stroke-width="1" stroke-dasharray="2,3"/>
-          <text x="60" y="109.00" text-anchor="end">35%</text>
-          <line x1="70" y1="60.00" x2="1080" y2="60.00" stroke="#2A2A2A" stroke-width="1"/>
-          <text x="60" y="64.00" text-anchor="end">40%</text>
-          </g>
-        <g font-family="Inter, system-ui, sans-serif">
-        <text x="330" y="38" text-anchor="middle" fill="#E8D9AA" font-size="13" font-weight="600" letter-spacing="2">YTD 2026</text>
-        <rect x="115.0" y="354.75" width="32" height="65.25" fill="url(#goldGrad)"/>
-        <text x="131.0" y="347.75" text-anchor="middle" fill="#E8C84A" font-size="11" font-weight="600">+7.25</text>
-        <rect x="149.0" y="328.74" width="20" height="91.26" fill="#5A6B7D"/>
-        <rect x="171.0" y="250.98" width="20" height="169.02" fill="#4A5568"/>
-        <rect x="193.0" y="420.00" width="20" height="13.05" fill="#3A4553"/>
-        <text x="164" y="490" text-anchor="middle" fill="#CCCCCC" font-size="12" font-weight="500">Inflection 2.0</text>
-        <rect x="275.0" y="306.24" width="32" height="113.76" fill="url(#goldGrad)"/>
-        <text x="291.0" y="299.24" text-anchor="middle" fill="#E8C84A" font-size="11" font-weight="600">+12.64</text>
-        <rect x="309.0" y="328.74" width="20" height="91.26" fill="#5A6B7D"/>
-        <rect x="331.0" y="250.98" width="20" height="169.02" fill="#4A5568"/>
-        <rect x="353.0" y="420.00" width="20" height="13.05" fill="#3A4553"/>
-        <text x="324" y="490" text-anchor="middle" fill="#CCCCCC" font-size="12" font-weight="500">Dynamic Macro</text>
-        <rect x="435.0" y="420.00" width="32" height="18.45" fill="url(#goldGrad)"/>
-        <text x="451.0" y="452.45" text-anchor="middle" fill="#E8C84A" font-size="11" font-weight="600">-2.05</text>
-        <rect x="469.0" y="328.74" width="20" height="91.26" fill="#5A6B7D"/>
-        <rect x="491.0" y="250.98" width="20" height="169.02" fill="#4A5568"/>
-        <rect x="513.0" y="420.00" width="20" height="13.05" fill="#3A4553"/>
-        <text x="484" y="490" text-anchor="middle" fill="#CCCCCC" font-size="12" font-weight="500">Safe Haven</text>
-        </g>
-        <line x1="575" y1="50" x2="575" y2="465" stroke="#2A2A2A" stroke-width="1"/>
-        <g font-family="Inter, system-ui, sans-serif">
-        <text x="850" y="38" text-anchor="middle" fill="#E8D9AA" font-size="13" font-weight="600" letter-spacing="2">TRAILING 1-YEAR · PROVISIONAL</text>
-        <rect x="635.0" y="88.89" width="32" height="331.11" fill="url(#goldGrad)"/>
-        <text x="651.0" y="81.89" text-anchor="middle" fill="#E8C84A" font-size="11" font-weight="600">+36.79</text>
-        <rect x="669.0" y="207.06" width="20" height="212.94" fill="#5A6B7D"/>
-        <rect x="691.0" y="72.60" width="20" height="347.40" fill="#4A5568"/>
-        <rect x="713.0" y="408.39" width="20" height="11.61" fill="#3A4553"/>
-        <text x="684" y="490" text-anchor="middle" fill="#CCCCCC" font-size="12" font-weight="500">Inflection 2.0</text>
-        <rect x="795.0" y="242.88" width="32" height="177.12" fill="url(#goldGrad)"/>
-        <text x="811.0" y="235.88" text-anchor="middle" fill="#E8C84A" font-size="11" font-weight="600">+19.68</text>
-        <rect x="829.0" y="207.06" width="20" height="212.94" fill="#5A6B7D"/>
-        <rect x="851.0" y="72.60" width="20" height="347.40" fill="#4A5568"/>
-        <rect x="873.0" y="408.39" width="20" height="11.61" fill="#3A4553"/>
-        <text x="844" y="490" text-anchor="middle" fill="#CCCCCC" font-size="12" font-weight="500">Dynamic Macro</text>
-        <rect x="955.0" y="410.73" width="32" height="9.27" fill="url(#goldGrad)"/>
-        <text x="971.0" y="403.73" text-anchor="middle" fill="#E8C84A" font-size="11" font-weight="600">+1.03</text>
-        <rect x="989.0" y="207.06" width="20" height="212.94" fill="#5A6B7D"/>
-        <rect x="1011.0" y="72.60" width="20" height="347.40" fill="#4A5568"/>
-        <rect x="1033.0" y="408.39" width="20" height="11.61" fill="#3A4553"/>
-        <text x="1004" y="490" text-anchor="middle" fill="#CCCCCC" font-size="12" font-weight="500">Safe Haven</text>
-        </g>
-        <text x="22" y="260" text-anchor="middle" fill="#888888" font-size="10" font-family="Inter, system-ui, sans-serif" letter-spacing="1.5" transform="rotate(-90, 22, 260)">RETURN (%)</text>
-      </svg>
-
-      <div class="alpha-attr-footer">
-        <span>Benchmarks: <strong>SPY</strong> (S&amp;P 500), <strong>IWM</strong> (Russell 2000), <strong>IEF</strong> (iShares 7-10 Yr Treasury)</span>
-        <span>Source: Interactive Brokers PortfolioAnalyst · Net of fees</span>
-      </div>
+      <img src="rcg_alpha_factor_1.jpg"
+           alt="RCG Alpha Factor Decomposition Chart"
+           loading="lazy"
+           onerror="this.parentElement.style.display='none'">
     </div>
   </div>
 
@@ -1694,12 +1531,12 @@
           <div class="perf-card-name">Inflection 2.0</div>
           <div class="perf-card-class">Equity · Concentrated · Benchmark: IWM</div>
         </div>
-        <div class="perf-si">+214.1%</div>
+        <div class="perf-si">+213.6%</div>
         <div class="perf-si-label">Since Inception</div>
         <div class="perf-grid">
           <div class="perf-item">
             <div class="perf-item-label">1-Year Return</div>
-            <div class="perf-item-val">+36.8%</div>
+            <div class="perf-item-val">+36.6%</div>
           </div>
           <div class="perf-item">
             <div class="perf-item-label">Sharpe Ratio (SI)</div>
@@ -1727,12 +1564,12 @@
           <div class="perf-card-name">Dynamic Macro</div>
           <div class="perf-card-class">Multi-Asset · Global · Benchmark: SPY</div>
         </div>
-        <div class="perf-si">+112.7%</div>
+        <div class="perf-si">+112.8%</div>
         <div class="perf-si-label">Since Inception</div>
         <div class="perf-grid">
           <div class="perf-item">
             <div class="perf-item-label">1-Year Return</div>
-            <div class="perf-item-val">+19.7%</div>
+            <div class="perf-item-val">+19.8%</div>
           </div>
           <div class="perf-item">
             <div class="perf-item-label">Sharpe Ratio (SI)</div>
@@ -1760,12 +1597,12 @@
           <div class="perf-card-name">Safe Haven</div>
           <div class="perf-card-class">Fixed Income · Defensive · Benchmark: IEF</div>
         </div>
-        <div class="perf-si">+13.4%</div>
+        <div class="perf-si">+13.38%</div>
         <div class="perf-si-label">Since Inception</div>
         <div class="perf-grid">
           <div class="perf-item">
             <div class="perf-item-label">1-Year Return</div>
-            <div class="perf-item-val">+1.0%</div>
+            <div class="perf-item-val">+1.03%</div>
           </div>
           <div class="perf-item">
             <div class="perf-item-label">Sortino Ratio (SI)</div>
@@ -1782,7 +1619,7 @@
         </div>
         <div class="perf-benchmark">
           <span class="perf-bm-label">IEF Since Inception</span>
-          <span class="perf-bm-val">+2.7%</span>
+          <span class="perf-bm-val">+2.66%</span>
         </div>
         <a class="perf-tearsheet" href="RCG_Safe_Haven_Tearsheet_Jul.pdf" target="_blank">View Full Tearsheet ↗</a>
       </div>
@@ -1826,6 +1663,22 @@
         <div class="research-topic">
           <h4>How to Think About Drawdown Before It Happens</h4>
           <span class="topic-num">05 ↑</span>
+        </div>
+        <div class="research-topic">
+          <h4>Mark Yourself to Market</h4>
+          <span class="topic-num">06 ↑</span>
+        </div>
+        <div class="research-topic">
+          <h4>The Rebalancing Decision</h4>
+          <span class="topic-num">07 ↑</span>
+        </div>
+        <div class="research-topic">
+          <h4>Position Sizing Is the Decision</h4>
+          <span class="topic-num">08 ↑</span>
+        </div>
+        <div class="research-topic">
+          <h4>The Risk That Doesn’t Show Up in Volatility</h4>
+          <span class="topic-num">09 ↑</span>
         </div>
       </div>
     </div>
@@ -1875,7 +1728,7 @@
         <p class="team-bio-preview">Nick brings over twenty years of institutional experience in systematic and discretionary trading and portfolio management. He founded and built Robin Capital Group as a sole practitioner — designing its investment philosophy, constructing its three live strategies, and developing the systematic infrastructure that underlies the firm's operations.</p>
         <div class="team-bio-full" id="bio-nick">
           <p style="margin-bottom:12px;">Prior to founding RCG, Nick held senior roles at Citadel Securities, Citadel, and Bank of America in Chicago, New York, and London, covering rates, market making, and high-frequency trading. That career across three financial capitals — spanning institutional fixed income, derivatives, and systematic execution — shaped the cross-market perspective on risk and capital allocation that defines RCG's investment approach. RCG's track record since May 2022, across multiple market regimes and in real client capital, reflects that body of work entirely. Nick holds an M.S. in Finance and a B.S.E. from Universidad Adolfo Ibáñez (UAI) in Santiago, Chile, and currently holds his Series 65 as a registered Investment Advisor Representative.</p>
-
+          <p style="padding-top:12px; border-top:1px solid var(--border);">Nick is also Co-Founder and Co-CIO of <span style="color:var(--cream);">Nezumia</span>, a separate quantitative AI hedge fund co-founded with Patrick S. Huggins — a quantitative researcher with prior roles at Citadel Securities, Citadel, and HSBC, and holder of a Ph.D. in Computer Science with a concentration in Artificial Intelligence from Yale University and a B.S. in Mathematics and Computer Science from NYU. Nezumia represents a distinct thesis — one that recent advances in AI have made possible: a fully autonomous asset manager in which AI drives every stage of the investment process, from alpha generation and signal sourcing to execution and risk management, with no discretionary overlay. The two firms are independent ventures that happen to share a founder, not extensions of one another.</p>
         </div>
         <button class="team-read-more" onclick="toggleBio('bio-nick', this)">Read more <span class="arrow">↓</span></button>
       </div>
@@ -1918,7 +1771,7 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-year">2008–2018</div>
-        <div class="timeline-event"><strong>Institutional Foundation</strong>BofA, Citadel, Citadel Securities — rates, credit, derivatives, HFT</div>
+        <div class="timeline-event"><strong>Institutional Foundation</strong>BofA, Citadel FI, Citadel Securities — rates, credit, derivatives, HFT</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
